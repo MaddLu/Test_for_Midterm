@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">MusicLibrary</string>
+    <string name="add_artist">Add Artist</string>
+    <string name="artist_heading">Artists</string>
+    <string name="instructions">Tap an Artist to see Tracks</string>
+    <string name="enterTrack">Enter Track</string>
+    <string name="addTrack">Add Track</string>
+    <array name="genres">
+        <item name="rock">Rock</item>
+        <item name="pop">Pop</item>
+        <item name="indie">Indie</item>
+    </array>
+</resources>

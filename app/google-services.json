@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "510117937882",
+    "firebase_url": "https://musiclibrary-27c08.firebaseio.com",
+    "project_id": "musiclibrary-27c08",
+    "storage_bucket": "musiclibrary-27c08.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:510117937882:android:127553d6c6dc00fb",
+        "android_client_info": {
+          "package_name": "com.example.musiclibrary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "510117937882-0hic8tj4h4butkd7r1gcjrnol45pmboo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.musiclibrary",
+            "certificate_hash": "978f111e389d40a64ff7632f2604fbe6d43d8fe4"
+          }
+        },
+        {
+          "client_id": "510117937882-osjdhrnh31ulm9bnevlmagcf1ue5ijht.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAYyYDqUIaa9bC_KK58G3TXyH37xGxM7uA"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "510117937882-bgfkhj4nqkoaops2q73hs1eti7p0doml.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
