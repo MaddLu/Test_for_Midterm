@@ -6,6 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:id="@+id/appToolBar"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="4dp"
+        android:theme="@style/Base.ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/Base.ThemeOverlay.AppCompat.Light"
+        android:background="@color/colorPrimary"></android.support.v7.widget.Toolbar>
+
     <EditText
         android:id="@+id/editTextName"
         android:layout_width="0dp"
@@ -15,7 +25,7 @@
         android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/appToolBar"/>
 
     <Spinner
         android:id="@+id/spinnerGenres"
@@ -30,11 +40,11 @@
         android:id="@+id/buttonAddArtist"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="addArtist"
         android:text="@string/add_artist"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerGenres"
-        android:onClick="addArtist"/>
+        app:layout_constraintTop_toBottomOf="@+id/spinnerGenres" />
 
     <TextView
         android:id="@+id/textViewHeading"
@@ -55,6 +65,17 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewHeading" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/logoutFab"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:tint="@color/common_google_signin_btn_text_dark_default"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@mipmap/ic_logout_foreground"
+        android:onClick="logout"/>
 
     <ListView
         android:layout_width="0dp"

@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
@@ -13,6 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -31,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
     TextView textViewArtistGenre;
     ListView listViewArtists;
     List<Artist> artists;
+    FirebaseAuth authDb;
+    Toolbar appToolBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,10 +46,17 @@ public class MainActivity extends AppCompatActivity {
         editTextName = findViewById(R.id.editTextName);
         spinnerGenres = findViewById(R.id.spinnerGenres);
         listViewArtists = findViewById(R.id.listViewArtists);
+        appToolBar = findViewById(R.id.appToolBar);
+        setSupportActionBar(appToolBar);
 
         //db connection
         db = FirebaseDatabase.getInstance().getReference("artists");
         artists = new ArrayList<>();
+        authDb = FirebaseAuth.getInstance();
+        if (authDb.getCurrentUser() == null) {
+            finish();
+            startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        }
         // Write a message to the database
         /*FirebaseDatabase database = FirebaseDatabase.getInstance();
         DatabaseReference myRef = database.getReference("message");
@@ -68,6 +81,26 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+
+    //inflate the menu
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        getMenuInflater().inflate(R.menu.main_menu, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item){
+        switch (item.getItemId()){
+            case R.id.action_main:
+                return true;
+            case R.id.action_profile:
+                startActivity(new Intent(getApplicationContext(), ProfileActivity.class));
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     @Override
@@ -119,5 +152,11 @@ public class MainActivity extends AppCompatActivity {
         else{
             Toast.makeText(this,"Please enter a name", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void logout(View view) {
+        authDb.signOut();
+        finish();
+        startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 }
